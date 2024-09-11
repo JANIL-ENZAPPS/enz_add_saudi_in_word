@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <record id="accountmove_change" model="ir.ui.view">
+        <field name="name">Account Invoice Arabic</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+         <field name="arch" type="xml">
+          <xpath expr="//header" position="inside">
+             <button name="add_saudi_in_arabic_field" type="object" class="oe_highlight" string="Add Saudi"/>
+<!--             <button name="print_tax_values" type="object" class="oe_highlight" string="Print Tax"/>-->
+         </xpath>
+         </field>
+     </record>
+</odoo>
