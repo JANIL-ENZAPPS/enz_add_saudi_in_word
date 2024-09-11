@@ -5,20 +5,14 @@ class AccountMove(models.Model):
 
     def add_saudi_in_arabic_field(self):
         if self.ar_amount_untaxed:
-            modified_string = self.ar_amount_untaxed.replace('فقط', '').replace('لاغير', '').replace(' ريال سعودي','').strip()
-            modified_string += ' ريال سعودي'
-            modified_string =  modified_string + 'فقط'
+            modified_string = self.ar_amount_untaxed.replace('سعودي','')
+            modified_string = modified_string.replace('ريال', 'سعودي ريال')
             self.ar_amount_untaxed = modified_string
         if self.amount_in_word_ar:
-            modified_string = self.ar_amount_untaxed.replace('فقط', '').replace('لاغير', '').replace(' ريال سعودي','').strip()
-            modified_string += ' ريال سعودي'
-            modified_string = modified_string + 'فقط'
+            modified_string = self.ar_amount_untaxed.replace('سعودي','')
+            modified_string = modified_string.replace('ريال', 'سعودي ريال')
             self.amount_in_word_ar = modified_string
 
-    # def print_tax_values(self):
-    #     for line in self.invoice_line_ids:
-    #         print(line.enz_natcom_compute_tax_value())
-    #         print(line.enz_natcom_compute_taxed_subtotal())
 
 class AccountMoveLine(models.Model):
     _inherit = "account.move.line"
